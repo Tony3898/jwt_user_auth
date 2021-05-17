@@ -44,3 +44,28 @@ exports.getUsers = async (req, res, next) => {
     next(e)
   }
 }
+
+exports.updateUser = async (req, res, next) => {
+  try {
+    let employeeId = req.params.employeeId
+    let updates = req.body
+    let user = await userModel.findOneAndUpdate({ employeeId }, { ...updates }, { new: true })
+    if (!user) throw new Error('User not found')
+    let _user = await userModel.omitSensitiveFields(user)
+    res.status(200).send(_user)
+  } catch (e) {
+    next(e)
+  }
+}
+
+exports.deleteUser = async (req, res, next) => {
+  try {
+    let employeeId = req.params.employeeId
+    let exists = await userModel.exists({ employeeId })
+    if (!exists) throw new Error('User not found')
+    let user = await userModel.deleteOne({ employeeId })
+    res.status(200).send(user)
+  } catch (e) {
+    next(e)
+  }
+}

@@ -1,1 +1,1 @@
-exports.USER_STATUS = ['Active', 'IN-ACTIVE']
+exports.USER_STATUS = ['Active', 'In-Active']

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const { omit } = require('lodash')
 const { USER_STATUS } = require('../constants')
-const { slug } = require('../utils/hooks')
 
 const Schema = mongoose.Schema
 

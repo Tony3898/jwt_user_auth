@@ -44,5 +44,8 @@
     "user auth"
   ],
   "author": "Tejas Rana <contact@tejasrana.in",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=10.6.0"
+  }
 }
